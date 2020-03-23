@@ -13,7 +13,7 @@ SECRET_KEY = 'ac=3hb*y10(w=fm7m@j4*kr9%y79)#t^h5*q=)bs$-3um$p&wg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+CORS_ORIGIN_ALLOW_ALL=True
 ALLOWED_HOSTS = []
 
 CORS_ORIGIN_WHITELIST = [
