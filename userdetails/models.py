@@ -8,4 +8,4 @@ class UserDetails(models.Model):
     user_pass = models.CharField(max_length=50)
     def __str__(self):
         return self.user_name
-    
+     
