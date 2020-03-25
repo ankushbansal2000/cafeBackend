@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'admindetails',
     'itemdetails',
+    'cartdetail',
     'corsheaders',
     'rest_framework',
     'userdetails',

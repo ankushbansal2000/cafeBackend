@@ -6,4 +6,4 @@ class admindetail(models.Model):
     phoneNo=models.BigIntegerField()
     email=models.CharField(max_length=50)
     password=models.CharField(max_length=15)
-
+    

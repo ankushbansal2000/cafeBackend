@@ -11,4 +11,8 @@ class itemdetail(models.Model):
   #  image=models.ImageField(upload_to='pics')
     image=models.ImageField(upload_to=upload_path)
     desc=models.CharField(max_length=100)
+    
+    # @property
+    # def cart(self):
+    #   return self.objects.all()
 
