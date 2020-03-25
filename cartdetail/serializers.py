@@ -6,5 +6,3 @@ class CartDetailSerializer(serializers.ModelSerializer):
         model = cartdetail
         fields = '__all__'
 
-
-        

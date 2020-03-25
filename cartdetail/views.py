@@ -19,7 +19,7 @@ class CartGetView(generics.ListAPIView):
 
 
     def get_queryset(self):
-        id = self.request.query_params.get('id', None)
+        id = self.request.query_params.get('email', None)
         print(id)
-        queryset=cartdetail.objects.filter(userid=id)
+        queryset=cartdetail.objects.filter(emailid=id)
         return queryset
