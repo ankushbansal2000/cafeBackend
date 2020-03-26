@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import OrderViewSet,CartView
+from .views import OrderViewSet,OrderView
 urlpatterns = [
     
     path('post/',OrderViewSet.as_view()),
-    path('get/',CartView.as_view())   
+    path('get/',OrderView.as_view())   
     
     
 ]

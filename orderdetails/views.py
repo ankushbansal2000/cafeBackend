@@ -2,33 +2,37 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import viewsets,filters,generics
-from .serializers import OrderDetailSerializer
+from .serializers import OrderDetailSerializer,OrderSerializer
 from .models import orderdetail
 from cartdetail.models import cartdetail
-from itemdetails.models import itemdetail
 from rest_framework.response import Response
+import json
 
 
-
-class CartView(generics.ListAPIView):
+class OrderView(generics.ListAPIView):
     serializer_class=OrderDetailSerializer
-    queryset = orderdetail.objects.all()
+    def get_queryset(self):
+        queryset = orderdetail.objects.all()
+        for i in queryset:
+                i.order=json.loads(i.order)
+        return queryset
 
 
 class OrderViewSet(generics.CreateAPIView):
-        # queryset = itemdetail.objects.all()
-        serializer_class = OrderDetailSerializer
+        serializer_class = OrderSerializer
 
         def post(self,request,*args,**kwargs):
             email = request.data['email']
-            json = request.data['order']
-            print(email)
             q=cartdetail.objects.filter(emailid=email)
-            
+            l=[]
             for i in q:
+                d={}
+                print(i.id,i.emailid,i.quantity,i.item_name)
+                d['id']=i.id
+                d['email']=i.emailid
+                d['quantity']=i.quantity
+                d['name']=i.item_name
+                l.append(d)
                 i.delete()
-            orderdetail.objects.create(email=email,order=json)
-            return Response({'message': "Order Created"})
-    #         print(i.id,i.emailid,i.quantity,i.item_name)
-    #     # 
-    #     
+            orderdetail.objects.create(email=email,order=json.dumps(l))
+            return Response({'message': "Order Created"})  

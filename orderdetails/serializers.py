@@ -3,12 +3,11 @@ from .models import orderdetail
 from itemdetails.models import itemdetail
 from cartdetail.models import cartdetail
 
-class GetItem(serializers.ModelSerializer):
+
+class OrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = itemdetail
-        fields = '__all__'
-
-
+        model = orderdetail
+        fields = ['email']
 
 
 class OrderDetailSerializer(serializers.ModelSerializer):
