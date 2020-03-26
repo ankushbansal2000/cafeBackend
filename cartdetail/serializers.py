@@ -6,3 +6,8 @@ class CartDetailSerializer(serializers.ModelSerializer):
         model = cartdetail
         fields = '__all__'
 
+class CartUpdate(serializers.ModelSerializer):
+    class Meta:
+        model = cartdetail
+        fields = ['quantity']
+
