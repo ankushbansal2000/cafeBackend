@@ -13,8 +13,8 @@ class OrderView(generics.ListAPIView):
     serializer_class=OrderDetailSerializer
     def get_queryset(self):
         queryset = orderdetail.objects.all()
-        for i in queryset:
-                i.order=json.loads(i.order)
+  #      for i in queryset:
+   #         i.order=json.loads(i.order)
         return queryset
 
 
@@ -28,11 +28,11 @@ class OrderViewSet(generics.CreateAPIView):
             for i in q:
                 d={}
                 print(i.id,i.emailid,i.quantity,i.item_name)
-                d['id']=i.id
-                d['email']=i.emailid
-                d['quantity']=i.quantity
-                d['name']=i.item_name
+                d["id"]=i.id
+                d["email"]=i.emailid
+                d["quantity"]=i.quantity
+                d["name"]=i.item_name
                 l.append(d)
                 i.delete()
             orderdetail.objects.create(email=email,order=json.dumps(l))
-            return Response({'message': "Order Created"})  
+            return Response({'message': "Order Created"})   
