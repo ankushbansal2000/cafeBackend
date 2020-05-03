@@ -6,14 +6,20 @@ from .serializers import AdminDetailSerializer
 from .models import admindetail
 from django.http import JsonResponse
 
-class AdminViewSet(generics.CreateAPIView):
+class AdminViewSet(generics.CreateAPIView):   
+    #post api
     queryset = admindetail.objects.all()
     serializer_class = AdminDetailSerializer
-class AdminDetail(generics.ListAPIView):
+    
+class AdminDetail(generics.ListAPIView):       
+    #  get api
     queryset = admindetail.objects.all()
     serializer_class = AdminDetailSerializer
 
-class AdminAuthenticateList(generics.ListAPIView):
+#http://182.0.0.1:8000/admindetail/?email=
+
+class AdminAuthenticateList(generics.ListAPIView):   
+    # get api
     serializer_class = AdminDetailSerializer
 
     def get_queryset(self):

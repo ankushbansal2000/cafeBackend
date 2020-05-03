@@ -18,11 +18,14 @@ from django.urls import path,include
 from rest_framework import routers
 from itemdetails import views
 from cartdetail.views import CartUpate
+from orderdetails.views import OrderStatusUpdateList
 from django.conf import settings
 from django.conf.urls.static import static  
 router = routers.DefaultRouter()
 router.register(r'itemdetail', views.ItemViewSet),
-router.register('cartupdate',CartUpate)
+router.register('cartupdate',CartUpate),
+router.register('itemimage',views.ImageView)
+router.register('updateOrderStatus', OrderStatusUpdateList)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('admindetails.urls')),

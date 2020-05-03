@@ -6,3 +6,8 @@ urlpatterns = [
     path('adminn/',AdminDetail.as_view()),
     path(r'admindetail/', AdminViewSet.as_view())
 ]
+
+
+
+
+#127.0.0.1:80000/adminlogin   post request

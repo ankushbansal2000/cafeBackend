@@ -6,7 +6,7 @@ from rest_framework.exceptions import NotFound
 from itemdetails.models import itemdetail
 from itemdetails.serializers import ItemDetailSerializer
 # Create your views here.
-
+ 
 class RegUser(generics.CreateAPIView):
     querset = UserDetails.objects.all()
     serializer_class = UserSerializer

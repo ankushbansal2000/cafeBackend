@@ -7,7 +7,8 @@ from rest_framework.response import Response
 from .models import cartdetail
 from itemdetails.models import itemdetail
 
-class CartUpate(viewsets.ModelViewSet):
+class CartUpate(viewsets.ModelViewSet):   
+    #  4ooo post k liye
     
     queryset = cartdetail.objects.all()
     serializer_class = CartUpdate
